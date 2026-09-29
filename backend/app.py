@@ -131,6 +131,17 @@ def get_golden_profile():
     prof = load_golden_profile()
     return prof
 
+@app.get("/prediction-history", tags=["Prediction History"])
+def get_prediction_history():
+    history_path = os.path.join(CURRENT_DIR, "data", "prediction_history.json")
+    if os.path.exists(history_path):
+        try:
+            with open(history_path, "r", encoding="utf-8") as f:
+                return json.load(f)
+        except Exception:
+            return []
+    return []
+
 @app.post("/export/pdf", tags=["Reporting"])
 def export_pdf(batch: BatchProductionInput):
     pred = predict_batch(batch.dict())

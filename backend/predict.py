@@ -11,6 +11,7 @@ import json
 import joblib
 import numpy as np
 import pandas as pd
+from datetime import datetime
 from typing import Dict, Any, List
 
 CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -34,6 +35,34 @@ from backend.train import target_to_slug, MODELS_DIR
 
 _MODELS_CACHE = {}
 _FEATURE_NAMES = None
+HISTORY_FILE = os.path.join(CURRENT_DIR, "data", "prediction_history.json")
+
+def save_prediction_to_history(result: Dict[str, Any], batch_input: Dict[str, Any]):
+    """Appends every prediction run automatically to prediction_history.json."""
+    try:
+        os.makedirs(os.path.dirname(HISTORY_FILE), exist_ok=True)
+        history = []
+        if os.path.exists(HISTORY_FILE):
+            try:
+                with open(HISTORY_FILE, "r", encoding="utf-8") as f:
+                    history = json.load(f)
+            except Exception:
+                history = []
+                
+        record = {
+            "timestamp": datetime.now().isoformat(),
+            "batch_id": result.get("batch_id"),
+            "golden_score": result.get("golden_score"),
+            "status": result.get("status"),
+            "predictions": {k: v.get("predicted_value") for k, v in result.get("predictions", {}).items()},
+            "input_summary": batch_input
+        }
+        history.append(record)
+        
+        with open(HISTORY_FILE, "w", encoding="utf-8") as f:
+            json.dump(history, f, indent=2)
+    except Exception as e:
+        print(f"[Warning] Could not save prediction history: {e}")
 
 def get_feature_names() -> List[str]:
     global _FEATURE_NAMES
@@ -172,7 +201,7 @@ def predict_batch(batch_input: Dict[str, Any]) -> Dict[str, Any]:
         exp = explain_batch_prediction(target, model, engineered_features)
         explainability[target] = exp
         
-    return {
+    res = {
         "batch_id": str(batch_input.get("batch_id", "BT-UNKNOWN")),
         "golden_score": golden_eval["golden_score"],
         "status": golden_eval["status"],
@@ -182,3 +211,8 @@ def predict_batch(batch_input: Dict[str, Any]) -> Dict[str, Any]:
         "timeline_events": timeline,
         "explainability": explainability
     }
+    
+    # Save to persistent history log
+    save_prediction_to_history(res, batch_input)
+    
+    return res

@@ -532,15 +532,6 @@ if st.session_state.prediction_result is not None:
     if table_rows:
         df_display = pd.DataFrame(table_rows)
         st.dataframe(df_display, use_container_width=True, hide_index=True)
-        
-        if total_acc:
-            mean_accuracy = sum(total_acc) / len(total_acc)
-            st.markdown(f"""
-            <div style='background:#f0fdf4; border:1px solid #bbf7d0; border-radius:8px; padding:10px 16px; margin-top:8px; margin-bottom:18px; display:flex; justify-content:space-between; align-items:center;'>
-                <span style='font-size:13px; font-weight:700; color:#166534;'>🎯 Mean Multi-Target Prediction Accuracy: <strong style='font-size:16px; color:#15803d;'>{mean_accuracy:.1f}%</strong> across all 11 Laboratory Quality Parameters</span>
-                <span style='font-size:12px; color:#4b5563;'>Calculated against held-out laboratory ground truth</span>
-            </div>
-            """, unsafe_allow_html=True)
 
     # 11 Laboratory Quality Predictions in Neat 4-Column Grid
     st.markdown("<div class='section-header' style='margin-top:20px;'>🧪 Predicted Laboratory Quality Parameters (11 Targets)</div>", unsafe_allow_html=True)
@@ -572,10 +563,9 @@ if st.session_state.prediction_result is not None:
     st.markdown("<div style='margin-top:20px;'></div>", unsafe_allow_html=True)
 
     # Visual Analytics Tabs
-    tab_corr, tab_shap, tab_features = st.tabs([
+    tab_corr, tab_shap = st.tabs([
         "📊 Input-Output Correlation",
-        "🧠 Explainable AI (SHAP)",
-        "⚙️ All 45 Process Features"
+        "🧠 Explainable AI (SHAP)"
     ])
 
     with tab_corr:
@@ -670,50 +660,6 @@ if st.session_state.prediction_result is not None:
             fig_shap = create_shap_bar_chart(exp_item)
             if fig_shap:
                 st.plotly_chart(fig_shap, use_container_width=True)
-
-    with tab_features:
-        st.markdown(f"##### 🔬 EDA & Process Feature Intelligence — Batch: `{res.get('batch_id')}`")
-        st.caption("Visualizing the relationship between engineered process features and historical factory distributions.")
-        
-        hist_feats, _, _, in_map = get_historical_correlation_data()
-        feats_dict = res.get("engineered_features", {})
-        
-        if hist_feats is not None:
-            available_feats = [c for c in feats_dict.keys() if c in hist_feats.columns]
-            friendly_options = {c: in_map.get(c, c.replace('_', ' ').title()) for c in available_feats}
-            
-            sel_feat_col = st.selectbox(
-                "Select Engineered Feature to Inspect Factory Distribution & Current Batch Value:",
-                options=available_feats,
-                format_func=lambda x: friendly_options.get(x, x),
-                index=0
-            )
-            
-            if sel_feat_col:
-                curr_val = float(feats_dict.get(sel_feat_col, 0.0))
-                fig_dist, stats = create_feature_distribution_plot(
-                    hist_feats[sel_feat_col],
-                    curr_val,
-                    friendly_options.get(sel_feat_col, sel_feat_col),
-                    res.get("batch_id", "Current Batch")
-                )
-                st.plotly_chart(fig_dist, use_container_width=True)
-                
-                d1, d2, d3, d4 = st.columns(4)
-                with d1:
-                    st.metric("Current Batch Value", f"{curr_val:g}")
-                with d2:
-                    st.metric("Factory Median", f"{stats['median']:g}")
-                with d3:
-                    st.metric("Optimal Range (P25 - P75)", f"[{stats['p25']:g} - {stats['p75']:g}]")
-                with d4:
-                    status_feat = "Optimal (P25-P75)" if stats['p25'] <= curr_val <= stats['p75'] else ("Acceptable (P10-P90)" if stats['p10'] <= curr_val <= stats['p90'] else "Outlier Deviation")
-                    st.metric("Batch Adherence", status_feat)
-                    
-        st.markdown("<div style='margin-top:16px;'></div>", unsafe_allow_html=True)
-        st.markdown("##### 📋 All 45 Process Engineered Feature Values")
-        df_f = pd.DataFrame([{"Feature Variable": k, "Batch Value": v} for k, v in feats_dict.items()])
-        st.dataframe(df_f, use_container_width=True, height=280)
 
     # Downloadable Reports Center
     st.divider()

@@ -67,3 +67,6 @@ Thumbs.db
 
 # Temporary generated test output files
 backend/reports/test_report.*
+backend/reports/report_*.pdf
+backend/reports/report_*.xlsx
+backend/reports/report_*.csv
