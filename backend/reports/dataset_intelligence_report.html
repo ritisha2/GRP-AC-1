@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ADVaIT — Industrial Dataset Intelligence Report</title>
+    <style>
+        :root {
+            --bg: #0d1117;
+            --surface: #161b22;
+            --border: #30363d;
+            --text: #c9d1d9;
+            --text-heading: #f0f6fc;
+            --accent: #58a6ff;
+            --green: #2ea043;
+            --amber: #d29922;
+            --red: #f85149;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            margin: 0;
+            padding: 30px;
+        }
+        .header {
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+        h1, h2, h3 { color: var(--text-heading); }
+        .badge {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 600;
+            background: rgba(88, 166, 255, 0.15);
+            color: var(--accent);
+            border: 1px solid rgba(88, 166, 255, 0.4);
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        .card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 20px;
+        }
+        .metric-val {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--accent);
+            margin-top: 5px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+            font-size: 14px;
+        }
+        th, td {
+            padding: 10px 14px;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+        th {
+            background-color: rgba(255, 255, 255, 0.04);
+            color: var(--text-heading);
+        }
+        tr:hover td { background: rgba(255, 255, 255, 0.02); }
+        .score-bar {
+            height: 8px;
+            border-radius: 4px;
+            background: var(--border);
+            overflow: hidden;
+            width: 100px;
+            display: inline-block;
+            vertical-align: middle;
+            margin-right: 8px;
+        }
+        .score-fill {
+            height: 100%;
+            background: var(--green);
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <span class="badge">PHASE 0: DATASET INTELLIGENCE</span>
+        <h1>BT Rubber Industrial Autoclave Process & Quality Profiling</h1>
+        <p>Comprehensive telemetry audit, statistical distribution analysis, and predictability evaluation.</p>
+    </div>
+
+    <div class="grid">
+        <div class="card">
+            <div>Total Batches Audited</div>
+            <div class="metric-val">144</div>
+        </div>
+        <div class="card">
+            <div>Production Parameters</div>
+            <div class="metric-val">69</div>
+        </div>
+        <div class="card">
+            <div>Engineered Features</div>
+            <div class="metric-val">45</div>
+        </div>
+        <div class="card">
+            <div>Duplicate Batches</div>
+            <div class="metric-val">1</div>
+        </div>
+    </div>
+
+    <div class="card" style="margin-bottom: 30px;">
+        <h2>Target Predictability Benchmark (5-Fold Cross-Validation R²)</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Quality Target</th>
+                    <th>Predictability Score (R²)</th>
+                    <th>Top Predictive Engineered Features</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                <tr>
+                    <td><strong>AC Mooney</strong></td>
+                    <td>
+                        <div class="score-bar"><div class="score-fill" style="width: 0%;"></div></div>
+                        0.0
+                    </td>
+                    <td><code>steam_open_delay</code> (11.4%), <code>pressure_increase_rate</code> (8.3%), <code>thermal_exposure_score</code> (5.8%)</td>
+                </tr>
+
+                <tr>
+                    <td><strong>Ash%</strong></td>
+                    <td>
+                        <div class="score-bar"><div class="score-fill" style="width: 0%;"></div></div>
+                        0.0
+                    </td>
+                    <td><code>steam_to_heat_diff</code> (19.1%), <code>low_tf_ratio</code> (10.6%), <code>steam_to_heat_press_change</code> (7.8%)</td>
+                </tr>
+
+                <tr>
+                    <td><strong>CB%</strong></td>
+                    <td>
+                        <div class="score-bar"><div class="score-fill" style="width: 0%;"></div></div>
+                        0.0
+                    </td>
+                    <td><code>steam_to_heat_diff</code> (23.4%), <code>steam_open_delay</code> (8.8%), <code>cooking_duration_verified</code> (6.4%)</td>
+                </tr>
+
+                <tr>
+                    <td><strong>AE%</strong></td>
+                    <td>
+                        <div class="score-bar"><div class="score-fill" style="width: 0%;"></div></div>
+                        0.0
+                    </td>
+                    <td><code>steam_to_heat_diff</code> (13.0%), <code>steam_open_delay</code> (7.8%), <code>pressure_stability</code> (7.3%)</td>
+                </tr>
+
+                <tr>
+                    <td><strong>VM%</strong></td>
+                    <td>
+                        <div class="score-bar"><div class="score-fill" style="width: 0%;"></div></div>
+                        0.0
+                    </td>
+                    <td><code>normalized_temp_ratio</code> (8.8%), <code>low_tf_ratio</code> (5.0%), <code>heating_rate</code> (5.0%)</td>
+                </tr>
+
+                <tr>
+                    <td><strong>RHC</strong></td>
+                    <td>
+                        <div class="score-bar"><div class="score-fill" style="width: 0%;"></div></div>
+                        0.0
+                    </td>
+                    <td><code>steam_to_heat_diff</code> (29.9%), <code>steam_open_delay</code> (7.6%), <code>pressure_gradient_ratio</code> (4.4%)</td>
+                </tr>
+
+                <tr>
+                    <td><strong>Specific Gravity</strong></td>
+                    <td>
+                        <div class="score-bar"><div class="score-fill" style="width: 0%;"></div></div>
+                        0.0
+                    </td>
+                    <td><code>steam_to_heat_press_change</code> (31.6%), <code>depressurization_rate</code> (11.1%), <code>cooling_ratio</code> (8.9%)</td>
+                </tr>
+
+                <tr>
+                    <td><strong>Mv</strong></td>
+                    <td>
+                        <div class="score-bar"><div class="score-fill" style="width: 0%;"></div></div>
+                        0.0
+                    </td>
+                    <td><code>thermal_exposure_score</code> (12.0%), <code>steam_to_heat_diff</code> (9.6%), <code>steam_open_delay</code> (5.4%)</td>
+                </tr>
+
+                <tr>
+                    <td><strong>TS</strong></td>
+                    <td>
+                        <div class="score-bar"><div class="score-fill" style="width: 0%;"></div></div>
+                        0.0
+                    </td>
+                    <td><code>steam_open_delay</code> (9.0%), <code>cooking_duration_verified</code> (7.4%), <code>unloading_ratio</code> (6.1%)</td>
+                </tr>
+
+                <tr>
+                    <td><strong>EB</strong></td>
+                    <td>
+                        <div class="score-bar"><div class="score-fill" style="width: 0%;"></div></div>
+                        0.0
+                    </td>
+                    <td><code>steam_open_delay</code> (11.6%), <code>cooking_duration_verified</code> (8.0%), <code>pressure_gradient_ratio</code> (8.0%)</td>
+                </tr>
+
+                <tr>
+                    <td><strong>Hardness</strong></td>
+                    <td>
+                        <div class="score-bar"><div class="score-fill" style="width: 0%;"></div></div>
+                        0.0
+                    </td>
+                    <td><code>steam_open_delay</code> (11.9%), <code>pressure_gradient_ratio</code> (8.6%), <code>cooking_duration_verified</code> (8.6%)</td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+
+    <div class="card">
+        <h2>Engineered Process Feature Distributions (Top Process Features)</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Feature</th>
+                    <th>Mean</th>
+                    <th>Std</th>
+                    <th>Min</th>
+                    <th>Median</th>
+                    <th>Max</th>
+                    <th>Outliers (IQR)</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                <tr>
+                    <td><code>steam_open_delay</code></td>
+                    <td>59.215</td>
+                    <td>90.097</td>
+                    <td>0.0</td>
+                    <td><strong>51.0</strong></td>
+                    <td>1108.0</td>
+                    <td>24</td>
+                </tr>
+
+                <tr>
+                    <td><code>steam_duration</code></td>
+                    <td>16.319</td>
+                    <td>20.787</td>
+                    <td>0.0</td>
+                    <td><strong>12.0</strong></td>
+                    <td>235.0</td>
+                    <td>18</td>
+                </tr>
+
+                <tr>
+                    <td><code>cooking_start_delay</code></td>
+                    <td>130.271</td>
+                    <td>314.931</td>
+                    <td>0.0</td>
+                    <td><strong>22.0</strong></td>
+                    <td>1395.0</td>
+                    <td>31</td>
+                </tr>
+
+                <tr>
+                    <td><code>cooking_duration_verified</code></td>
+                    <td>292.743</td>
+                    <td>215.198</td>
+                    <td>0.0</td>
+                    <td><strong>249.0</strong></td>
+                    <td>1378.0</td>
+                    <td>18</td>
+                </tr>
+
+                <tr>
+                    <td><code>cooling_delay</code></td>
+                    <td>24.958</td>
+                    <td>168.425</td>
+                    <td>0.0</td>
+                    <td><strong>5.0</strong></td>
+                    <td>1439.0</td>
+                    <td>2</td>
+                </tr>
+
+                <tr>
+                    <td><code>unloading_delay</code></td>
+                    <td>72.062</td>
+                    <td>69.911</td>
+                    <td>0.0</td>
+                    <td><strong>58.0</strong></td>
+                    <td>785.0</td>
+                    <td>10</td>
+                </tr>
+
+                <tr>
+                    <td><code>total_batch_duration</code></td>
+                    <td>501.924</td>
+                    <td>318.223</td>
+                    <td>0.0</td>
+                    <td><strong>378.5</strong></td>
+                    <td>1422.0</td>
+                    <td>33</td>
+                </tr>
+
+                <tr>
+                    <td><code>batch_duration_deviation</code></td>
+                    <td>367.153</td>
+                    <td>63.713</td>
+                    <td>0.0</td>
+                    <td><strong>363.5</strong></td>
+                    <td>720.0</td>
+                    <td>7</td>
+                </tr>
+
+                <tr>
+                    <td><code>steam_ratio</code></td>
+                    <td>0.047</td>
+                    <td>0.072</td>
+                    <td>0.0</td>
+                    <td><strong>0.03</strong></td>
+                    <td>0.571</td>
+                    <td>14</td>
+                </tr>
+
+                <tr>
+                    <td><code>cooking_ratio</code></td>
+                    <td>0.868</td>
+                    <td>1.158</td>
+                    <td>0.0</td>
+                    <td><strong>0.659</strong></td>
+                    <td>10.143</td>
+                    <td>19</td>
+                </tr>
+
+                <tr>
+                    <td><code>cooling_ratio</code></td>
+                    <td>0.064</td>
+                    <td>0.4</td>
+                    <td>0.0</td>
+                    <td><strong>0.01</strong></td>
+                    <td>3.443</td>
+                    <td>8</td>
+                </tr>
+
+                <tr>
+                    <td><code>unloading_ratio</code></td>
+                    <td>0.302</td>
+                    <td>1.484</td>
+                    <td>0.0</td>
+                    <td><strong>0.154</strong></td>
+                    <td>17.841</td>
+                    <td>13</td>
+                </tr>
+
+                <tr>
+                    <td><code>steam_temp_rise</code></td>
+                    <td>33.375</td>
+                    <td>14.347</td>
+                    <td>0.0</td>
+                    <td><strong>33.0</strong></td>
+                    <td>123.0</td>
+                    <td>10</td>
+                </tr>
+
+                <tr>
+                    <td><code>steam_to_heat_diff</code></td>
+                    <td>-90.097</td>
+                    <td>18.787</td>
+                    <td>-147.0</td>
+                    <td><strong>-93.0</strong></td>
+                    <td>0.0</td>
+                    <td>13</td>
+                </tr>
+
+                <tr>
+                    <td><code>heat_to_cooling_drop</code></td>
+                    <td>7.507</td>
+                    <td>9.241</td>
+                    <td>-73.0</td>
+                    <td><strong>7.5</strong></td>
+                    <td>23.0</td>
+                    <td>1</td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

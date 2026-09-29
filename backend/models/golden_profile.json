@@ -1,0 +1,451 @@
+{
+  "features": {
+    "steam_open_delay": {
+      "p10": 32.0,
+      "p25": 46.5,
+      "median": 51.0,
+      "p75": 56.5,
+      "p90": 66.8,
+      "iqr": 10.0
+    },
+    "steam_duration": {
+      "p10": 9.0,
+      "p25": 11.0,
+      "median": 12.0,
+      "p75": 16.0,
+      "p90": 25.6,
+      "iqr": 5.0
+    },
+    "cooking_start_delay": {
+      "p10": 18.0,
+      "p25": 20.0,
+      "median": 22.0,
+      "p75": 31.5,
+      "p90": 364.0,
+      "iqr": 11.5
+    },
+    "cooking_duration_verified": {
+      "p10": 209.2,
+      "p25": 228.0,
+      "median": 249.0,
+      "p75": 262.5,
+      "p90": 315.6,
+      "iqr": 34.5
+    },
+    "cooling_delay": {
+      "p10": 2.0,
+      "p25": 3.0,
+      "median": 5.0,
+      "p75": 7.0,
+      "p90": 9.0,
+      "iqr": 4.0
+    },
+    "unloading_delay": {
+      "p10": 47.0,
+      "p25": 51.0,
+      "median": 58.0,
+      "p75": 75.5,
+      "p90": 97.4,
+      "iqr": 24.5
+    },
+    "total_batch_duration": {
+      "p10": 308.4,
+      "p25": 347.5,
+      "median": 379.0,
+      "p75": 485.5,
+      "p90": 1094.2,
+      "iqr": 138.0
+    },
+    "batch_duration_deviation": {
+      "p10": 314.2,
+      "p25": 338.0,
+      "median": 364.0,
+      "p75": 388.5,
+      "p90": 413.8,
+      "iqr": 50.5
+    },
+    "steam_ratio": {
+      "p10": 0.012,
+      "p25": 0.0216,
+      "median": 0.0299,
+      "p75": 0.0442,
+      "p90": 0.0688,
+      "iqr": 0.0226
+    },
+    "cooking_ratio": {
+      "p10": 0.2499,
+      "p25": 0.48,
+      "median": 0.6595,
+      "p75": 0.7046,
+      "p90": 1.211,
+      "iqr": 0.2247
+    },
+    "cooling_ratio": {
+      "p10": 0.0031,
+      "p25": 0.0061,
+      "median": 0.0104,
+      "p75": 0.0171,
+      "p90": 0.0224,
+      "iqr": 0.011
+    },
+    "unloading_ratio": {
+      "p10": 0.0634,
+      "p25": 0.1159,
+      "median": 0.1547,
+      "p75": 0.1914,
+      "p90": 0.2856,
+      "iqr": 0.0754
+    },
+    "steam_temp_rise": {
+      "p10": 20.2,
+      "p25": 27.0,
+      "median": 33.0,
+      "p75": 37.5,
+      "p90": 45.0,
+      "iqr": 10.5
+    },
+    "steam_to_heat_diff": {
+      "p10": -104.0,
+      "p25": -98.0,
+      "median": -93.0,
+      "p75": -86.0,
+      "p90": -77.2,
+      "iqr": 12.0
+    },
+    "heat_to_cooling_drop": {
+      "p10": 0.0,
+      "p25": 3.0,
+      "median": 8.0,
+      "p75": 13.0,
+      "p90": 17.0,
+      "iqr": 10.0
+    },
+    "cooling_to_bottom_drop": {
+      "p10": 91.0,
+      "p25": 98.0,
+      "median": 110.0,
+      "p75": 117.0,
+      "p90": 121.0,
+      "iqr": 19.0
+    },
+    "total_temp_drop": {
+      "p10": 5.2,
+      "p25": 17.0,
+      "median": 23.0,
+      "p75": 30.5,
+      "p90": 39.0,
+      "iqr": 13.5
+    },
+    "cooling_efficiency": {
+      "p10": 0.0,
+      "p25": 1.0,
+      "median": 1.5556,
+      "p75": 2.0,
+      "p90": 2.395,
+      "iqr": 1.0
+    },
+    "normalized_temp_ratio": {
+      "p10": 1.5007,
+      "p25": 1.5627,
+      "median": 1.6589,
+      "p75": 1.7412,
+      "p90": 1.8407,
+      "iqr": 0.1785
+    },
+    "steam_pressure_rise": {
+      "p10": 3.66,
+      "p25": 4.205,
+      "median": 4.96,
+      "p75": 5.8,
+      "p90": 7.354,
+      "iqr": 1.595
+    },
+    "steam_to_heat_press_change": {
+      "p10": -11.7,
+      "p25": -10.2,
+      "median": -8.99,
+      "p75": -6.07,
+      "p90": -0.938,
+      "iqr": 4.13
+    },
+    "heat_to_cooling_press_drop": {
+      "p10": 0.548,
+      "p25": 8.88,
+      "median": 12.64,
+      "p75": 14.645,
+      "p90": 15.77,
+      "iqr": 5.765
+    },
+    "cooling_to_bottom_press_drop": {
+      "p10": 0.03,
+      "p25": 0.155,
+      "median": 0.61,
+      "p75": 2.74,
+      "p90": 8.05,
+      "iqr": 2.585
+    },
+    "overall_press_reduction": {
+      "p10": 4.064,
+      "p25": 4.485,
+      "median": 5.24,
+      "p75": 6.185,
+      "p90": 7.584,
+      "iqr": 1.7
+    },
+    "pressure_stability": {
+      "p10": 3.4023,
+      "p25": 6.6894,
+      "median": 8.7769,
+      "p75": 10.0299,
+      "p90": 11.183,
+      "iqr": 3.3404
+    },
+    "heating_rate": {
+      "p10": 1.2545,
+      "p25": 1.8698,
+      "median": 2.5455,
+      "p75": 3.0,
+      "p90": 3.4103,
+      "iqr": 1.1302
+    },
+    "pressure_increase_rate": {
+      "p10": 0.2097,
+      "p25": 0.2966,
+      "median": 0.3929,
+      "p75": 0.476,
+      "p90": 0.5868,
+      "iqr": 0.1794
+    },
+    "cooling_rate": {
+      "p10": 0.0,
+      "p25": 1.0,
+      "median": 1.5556,
+      "p75": 2.0,
+      "p90": 2.395,
+      "iqr": 1.0
+    },
+    "depressurization_rate": {
+      "p10": 0.4166,
+      "p25": 1.4491,
+      "median": 2.2029,
+      "p75": 3.1225,
+      "p90": 3.9344,
+      "iqr": 1.6734
+    },
+    "low_tf_ratio": {
+      "p10": 0.5237,
+      "p25": 0.8232,
+      "median": 0.9887,
+      "p75": 0.9962,
+      "p90": 1.0,
+      "iqr": 0.173
+    },
+    "steam_efficiency": {
+      "p10": 1.2545,
+      "p25": 1.8698,
+      "median": 2.5455,
+      "p75": 3.0,
+      "p90": 3.4103,
+      "iqr": 1.1302
+    },
+    "thermal_exposure_score": {
+      "p10": 26228.0,
+      "p25": 28905.0,
+      "median": 31800.0,
+      "p75": 35007.5,
+      "p90": 44270.8,
+      "iqr": 6102.5
+    },
+    "process_sync_delay": {
+      "p10": 1252.2,
+      "p25": 1389.0,
+      "median": 1397.0,
+      "p75": 1400.0,
+      "p90": 1402.0,
+      "iqr": 11.0
+    },
+    "steam_open_temp_missing": {
+      "p10": 0.0,
+      "p25": 0.0,
+      "median": 0.0,
+      "p75": 0.0,
+      "p90": 0.0,
+      "iqr": 0.0
+    },
+    "steam_open_press_missing": {
+      "p10": 0.0,
+      "p25": 0.0,
+      "median": 0.0,
+      "p75": 0.0,
+      "p90": 0.0,
+      "iqr": 0.0
+    },
+    "steam_close_temp_missing": {
+      "p10": 0.0,
+      "p25": 0.0,
+      "median": 0.0,
+      "p75": 0.0,
+      "p90": 0.0,
+      "iqr": 0.0
+    },
+    "heat_close_temp_missing": {
+      "p10": 0.0,
+      "p25": 0.0,
+      "median": 0.0,
+      "p75": 0.0,
+      "p90": 0.0,
+      "iqr": 0.0
+    },
+    "cooling_open_temp_missing": {
+      "p10": 0.0,
+      "p25": 0.0,
+      "median": 0.0,
+      "p75": 0.0,
+      "p90": 0.0,
+      "iqr": 0.0
+    },
+    "bottom_door_temp_missing": {
+      "p10": 0.0,
+      "p25": 0.0,
+      "median": 0.0,
+      "p75": 0.0,
+      "p90": 0.0,
+      "iqr": 0.0
+    },
+    "low_tf_duration_missing": {
+      "p10": 0.0,
+      "p25": 0.0,
+      "median": 0.0,
+      "p75": 0.0,
+      "p90": 0.0,
+      "iqr": 0.0
+    },
+    "thermal_inertia_index": {
+      "p10": 4.2671,
+      "p25": 5.6244,
+      "median": 6.4583,
+      "p75": 7.2502,
+      "p90": 8.1977,
+      "iqr": 1.6258
+    },
+    "cooking_cooling_temp_ratio": {
+      "p10": 1.0,
+      "p25": 1.0135,
+      "median": 1.0369,
+      "p75": 1.0621,
+      "p90": 1.0828,
+      "iqr": 0.0486
+    },
+    "overall_thermal_gradient": {
+      "p10": 0.0073,
+      "p25": 0.0267,
+      "median": 0.055,
+      "p75": 0.0787,
+      "p90": 0.1135,
+      "iqr": 0.052
+    },
+    "pressure_gradient_ratio": {
+      "p10": 0.0051,
+      "p25": 0.0095,
+      "median": 0.0129,
+      "p75": 0.0171,
+      "p90": 0.0218,
+      "iqr": 0.0076
+    },
+    "effective_curing_index": {
+      "p10": 226.976,
+      "p25": 251.935,
+      "median": 276.48,
+      "p75": 291.16,
+      "p90": 346.822,
+      "iqr": 39.225
+    }
+  },
+  "radar_medians": {
+    "steam_duration": 12.0,
+    "heating_rate": 2.5455,
+    "steam_temp_rise": 33.0,
+    "steam_pressure_rise": 4.96,
+    "cooking_ratio": 0.6595,
+    "cooling_rate": 1.5556
+  },
+  "quality_specs": {
+    "AC Mooney": {
+      "lsl": 50.0,
+      "target": 55.0,
+      "usl": 60.0,
+      "unit": "MU",
+      "spec_str": "50 - 60"
+    },
+    "Ash%": {
+      "lsl": 3.0,
+      "target": 5.0,
+      "usl": 7.0,
+      "unit": "%",
+      "spec_str": "3.00 - 7.00"
+    },
+    "CB%": {
+      "lsl": 28.0,
+      "target": 32.0,
+      "usl": 36.0,
+      "unit": "%",
+      "spec_str": "28.00 - 36.00"
+    },
+    "AE%": {
+      "lsl": 6.0,
+      "target": 9.0,
+      "usl": 12.0,
+      "unit": "%",
+      "spec_str": "6.00 - 12.00"
+    },
+    "VM%": {
+      "lsl": 0.0,
+      "target": 0.2,
+      "usl": 1.0,
+      "unit": "%",
+      "spec_str": "1 Max."
+    },
+    "RHC": {
+      "lsl": 50.0,
+      "target": 56.0,
+      "usl": 100.0,
+      "unit": "%",
+      "spec_str": "50 Min"
+    },
+    "Specific Gravity": {
+      "lsl": 1.12,
+      "target": 1.14,
+      "usl": 1.16,
+      "unit": "g/cc",
+      "spec_str": "1.14 \u00b1 0.02"
+    },
+    "Mv": {
+      "lsl": 30.0,
+      "target": 37.5,
+      "usl": 45.0,
+      "unit": "MU",
+      "spec_str": "30 - 45"
+    },
+    "TS": {
+      "lsl": 75.0,
+      "target": 88.0,
+      "usl": 150.0,
+      "unit": "kg/cm2",
+      "spec_str": "75 Min."
+    },
+    "EB": {
+      "lsl": 480.0,
+      "target": 520.0,
+      "usl": 750.0,
+      "unit": "%",
+      "spec_str": "480 Min."
+    },
+    "Hardness": {
+      "lsl": 48.0,
+      "target": 51.0,
+      "usl": 54.0,
+      "unit": "Shore A",
+      "spec_str": "51 \u00b1 3"
+    }
+  }
+}
